@@ -11,7 +11,7 @@ WORKDIR /app
 COPY pom.xml .
 
 # Copiar o diretório src para o container
-COPY src /RegUser/src
+COPY RegUser/src ./src
 
 #Executar o maven para compilar o projeto e gerar o arquivo JAR
 RUN mvn clean package -DskipTests
