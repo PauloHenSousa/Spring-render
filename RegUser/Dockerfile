@@ -19,6 +19,9 @@ COPY RegUser/src ./src
 #Executar o maven para compilar o projeto e gerar o arquivo JAR
 RUN mvn clean package -DskipTests
 
+# Verificar o conteúdo do diretório target/ para garantir que o arquivo JAR foi gerado
+RUN ls -l /app/target
+
 #Etapa de execução
 FROM openjdk:21-slim
 
@@ -26,7 +29,7 @@ FROM openjdk:21-slim
 WORKDIR /app
 
 #Copiar o JAR construido na etapa anterior
-COPY --from=build /app/target/*.JAR app.JAR
+COPY --from=build /app/target/*.jar app.jar
 
 #Definir a porta que será utilizada na aplicação
 EXPOSE 8189
