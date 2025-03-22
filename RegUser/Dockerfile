@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt-get install -y maven \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-    
+
 #Definir o diretório dentro do container para a aplicação
 WORKDIR /app
 
@@ -32,4 +32,4 @@ COPY --from=build /app/target/*.JAR app.JAR
 EXPOSE 8189
 
 #Comando para executar a aplicação
-ENTRYPOINT ["java", "-jar", app.jar]
+ENTRYPOINT ["java", "-jar", "app.jar"]
