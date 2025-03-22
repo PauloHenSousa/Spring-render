@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y maven && apt-get clean && rm -rf/var/li
 WORKDIR /app
 
 #Copiar o pom.xml para o container 
-COPY pom.xml .
+COPY RegUser/pom.xml .
 
 # Copiar o diretório src para o container
 COPY RegUser/src ./src
