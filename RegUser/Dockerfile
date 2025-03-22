@@ -7,9 +7,11 @@ RUN apt-get update && apt-get install -y maven && apt-get clean && rm -rf/var/li
 #Definir o diretório dentro do container para a aplicação
 WORKDIR /app
 
-#Copiar o pom.xml par o container 
+#Copiar o pom.xml para o container 
 COPY pom.xml .
-COPY src ./src
+
+# Copiar o diretório src para o container
+COPY src RegUser/src
 
 #Executar o maven para compilar o projeto e gerar o arquivo JAR
 RUN mvn clean package -DskipTests
